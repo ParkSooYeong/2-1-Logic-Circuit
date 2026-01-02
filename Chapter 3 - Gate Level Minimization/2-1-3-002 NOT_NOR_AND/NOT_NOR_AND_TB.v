@@ -16,7 +16,7 @@ module NOT_NOR_AND_TB;
     );
 
     initial begin
-        // 초기값
+        // Index
         A = 0; B = 0; C = 0;
         #10;
 
@@ -45,3 +45,4 @@ module NOT_NOR_AND_TB;
     end
 
 endmodule
+
