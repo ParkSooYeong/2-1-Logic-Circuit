@@ -34,7 +34,7 @@ Each logic gate includes a propagation delay to model realistic timing behavior.
 - `and_or_prop_delay_vhdl_tb.vhd`  
   : Testbench for functional and timing simulation
 
-- `and_or_prop_delay_vhdl.pdf`  
+- `COMPONENT.pdf`  
   : RTL schematic and simulation waveform results
 
 ---
