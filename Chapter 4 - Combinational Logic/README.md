@@ -13,11 +13,14 @@ Simulation and synthesis were performed using Quartus Prime.
 
 ## 2. File Structure
 
-decoder_2x4_gates_vhdl/
-├── decoder_2x4_gates_vhdl.vhd # Gate-level decoder (structural VHDL)
-├── decoder_2x4_gates_vhdl_tb.vhd # Testbench for simulation
-├── README.md # Project documentation
+- `decoder_2x4_gates_vhdl.vhd`  
+  Gate-level structural VHDL implementation of the 2-to-4 decoder
 
+- `decoder_2x4_gates_vhdl_tb.vhd`  
+  Testbench for functional simulation
+
+- `README.md`  
+  Project documentation
 
 ---
 
