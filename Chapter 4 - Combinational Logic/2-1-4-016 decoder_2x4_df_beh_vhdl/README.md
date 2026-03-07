@@ -104,6 +104,7 @@ D = 0111
 
 ## Project Structure
 
+```
 decoder_2x4_df_beh_vhdl
 │
 ├── decoder_2x4_df_beh_vhdl.vhd
@@ -111,6 +112,7 @@ decoder_2x4_df_beh_vhdl
 ├── waveform.png
 ├── schematic.png
 └── README.md
+```
 
 ---
 
