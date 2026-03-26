@@ -110,3 +110,157 @@ This testbench is suitable for verifying simple combinational logic such as:
 * Multiplexers (MUX)
 * Basic logic gates
 * Small digital modules
+
+---
+
+# VHDL Testbench Example – Design_Unit
+
+## 📌 Overview
+
+This project demonstrates a simple VHDL testbench for verifying a digital design module (`Design_Unit`).
+The testbench applies input stimulus, observes the output response, and helps validate the functional behavior of the design through simulation.
+
+> ⚠️ Note: This testbench is intended for **simulation only** and is **not synthesizable**.
+
+---
+
+## 🧱 Testbench Architecture
+
+The testbench is written using the following structure:
+
+* **Entity (`t_Design_Unit`)**
+
+  * Empty entity (no ports required for testbench)
+
+* **Architecture (`Test_Bench`)**
+
+  * Component declaration of the design under test (`Design_Unit`)
+  * Internal signals for stimulus and response
+  * UUT (Unit Under Test) instantiation
+  * Processes to generate input signals
+
+---
+
+## ⚙️ Signal Description
+
+### Input Signals (Stimulus)
+
+* `t_A` : Input signal A
+* `t_B` : Input signal B
+* `t_sel` : Select/control signal
+
+### Output Signal (Response)
+
+* `t_m_out` : Output from the design module
+
+---
+
+## 🔄 Simulation Behavior
+
+The testbench uses two processes:
+
+### 1️⃣ Input Initialization Process
+
+```vhdl
+process begin
+    t_A <= '1';
+    t_B <= '0';
+end process;
+```
+
+* Sets initial values for input signals
+
+---
+
+### 2️⃣ Select Signal Control Process
+
+```vhdl
+process begin
+    sel <= '1';
+    wait for 10 ns;
+    sel <= '0';
+end process;
+```
+
+* Toggles the select signal after 10 ns delay
+
+---
+
+## ⏱️ Timing Concept
+
+* `t_A = 1`, `t_B = 0` (constant inputs)
+* `sel` changes state after **10 ns**
+* Output `t_m_out` responds based on input selection logic
+
+---
+
+## 🧪 Simulation Setup
+
+### Requirements
+
+* VHDL simulator (e.g., ModelSim, QuestaSim, Vivado Simulator)
+
+### Steps
+
+1. Compile the design unit (`Design_Unit`)
+2. Compile the testbench (`t_Design_Unit`)
+3. Run simulation
+4. Observe waveform results
+
+---
+
+## 📊 Expected Behavior
+
+If `Design_Unit` is implemented as a **2-to-1 multiplexer**:
+
+* When `sel = '1'` → Output follows `A`
+* When `sel = '0'` → Output follows `B`
+
+---
+
+## ⚠️ Important Notes
+
+* The testbench uses:
+
+  * `process`
+  * `wait for`
+* These constructs are **not synthesizable**
+* This code is strictly for **functional verification**
+
+---
+
+## ❗ Known Issues in Current Code
+
+* Signal `sel` is used instead of `t_sel` in the process
+  → This may cause simulation errors unless corrected
+
+Recommended fix:
+
+```vhdl
+t_sel <= '1';
+wait for 10 ns;
+t_sel <= '0';
+```
+
+* Processes do not include `wait` statements for repetition
+  → Simulation may stop or behave unexpectedly
+
+---
+
+## 🎯 Purpose
+
+This example is intended for:
+
+* Learning VHDL testbench structure
+* Understanding signal stimulus generation
+* Practicing simulation-based verification
+
+---
+
+## 📎 Example Use Case
+
+This testbench can be used to verify:
+
+* Multiplexers (MUX)
+* Simple combinational logic
+* Basic digital circuits
